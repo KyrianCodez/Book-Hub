@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Book Hub</title>
+  <style>
+    .image {
+      height: 250px; 
+    background: linear-gradient(47deg, rgba(162,100,61,0.6) 0%, rgba(172,138,115,0.6) 0%);
+    }
+    .title {
+      width: 100%;
+      font-size: 1.5rem !important;
+      color: black !important;
+      font-weight: 500 !important;
+          background: linear-gradient(47deg, rgba(162,100,61,0.6) 0%, rgba(172,138,115,0.6) 0%);
+    padding: 14px !important;
+    height: 100%;
+    }
+    .card-style {
+      width: 250px;
+      height: 450px;
+    }
+    .logo{
+      height: 65px;
+      width: 65px
+    }
+  </style>
+  </head>
+  <body style="background-image: url(https://www.avcollege.ac.in/assets/resources/2022/02/library_banner_2.jpeg);">
+    <nav style=" background: linear-gradient(47deg, rgba(162,100,61,1) 0%, rgba(172,138,115,0.5) 100%); ">
+      <div class="nav-wrapper">
+         <a href="/" class="brand-logo center" >
+           <img src="data:image/png;base64,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" class=" logo">
+         </a>
+        <a href="/" class="left" style="margin-left:30px">Book Hub</a>
+        <div class="nav-wrapper">
+            <ul id="nav-mobile" class="left">
+                
+            </ul>
+        </div>
+      </div>
+    </nav>
+    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <nav class="white black-text" style="padding: 10px">
+      <div class="nav-wrapper">
+          <ul class="flashes">
+          {% for message in messages %}
+           <div class="center-align">{{ message }}</div>
+            
+          {% endfor %}
+          </ul>
+      </div>
+    </nav>
+    {% endif %}
+    {% endwith %}
+      {%for book in books%}
+      <!-- Modal Structure -->
+  <div id="modal{{ book.isbn }}" class="modal">
+    <div class="modal-content">
+      <h4>{{book.title}}<span> - {{book.isbn}}</span></h4>
+      <form id="review-form" action="/add_review" method="post">
+        <div class="review-container">
+          <label for="review-input">Write a Review for {{book.title}}</label>
+          <div class="input-field col s6">
+          <textarea id="textarea1" class="materialize-textarea" name="text"></textarea>
+          <label for="textarea1">Textarea</label>
+            
+        </div>  
+          <input class="hide" name="isbn" value={{book.isbn}}>
+          {%for i in range (5): %}
+            
+            <label for="{{book.isbn}}{{i}}_stars" >
+           
+              <input type="radio" class="with-gap" id="{{book.isbn}}{{i}}_stars" value="{{i+1}}" name="group1">
+              <span>{{i+1}} stars</span>
+            </label>
+          {%endfor%}
+        </div>
+        <div class="center-align" style="margin-top:25px">
+           <button type="submit" class="modal-close btn waves-effect waves-light ">Create Review
+           <i class="material-icons">send</i>
+           </button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+     
+      {% with reviews = book.reviews %}
+      {%if reviews%}
+      {%for review in reviews%}
+      <div class="divider"></div>
+        <div class="row">
+        <div class="col s12 m12 center-align">
+          <div class="card " style="min-height:150px; max-height:fit-content">
+            <div class="card-content ">
+              <span class="card-title">{{review.text}}</span>
+                {%with empty_stars = 5 - review.rating %}
+                {%if review.rating%}
+                
+                    {%for n in range(review.rating)%}
+                   <i class="material-icons">star</i>
+                {%endfor%}
+                  {%for n in range(empty_stars)%}
+                   <i class="material-icons">star_border</i>
+                {%endfor%}
+                {%else%}
+                  {%for i in range (5): %}
+                   <i class="material-icons">star_border</i>
+                  {%endfor%}
+                
+                
+                {%endif%}
+                {%endwith%}
+              </p>
+            </div>
+            <div class="card-action ">
+              <form action="/del_review/{{review.id}}" method="post">
+
+                <button type="submit" class="waves-effect waves-light btn #b71c1c red darken-4 ">Delete</button>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {%endfor%}
+      {%endif%}
+      {%endwith%}
+    </div>
+  </div>
+    {%endfor%}
+    <div class="container">
+       <div class="row">
+      {%for book in books%}
+      
+        <div class="col s12 m4 l3">
+          <div class="col">
+          <div class="card card-style">
+            <div class="card-image">
+            <img src="{{book.image_l}}" class="image" >
+              <span class="card-title title">{{book.title}}</span>
+            </div>
+            <div class="card-content">
+              <p>{{book.publication_year}}</p>
+              <p>{{book.publisher}}</p>
+              <p>
+                {%with empty_stars = 5 - book.ratings %}
+                {%if book.ratings%}
+                
+                    {%for n in range(book.ratings)%}
+                   <i class="material-icons">star</i>
+                {%endfor%}
+                  {%for n in range(empty_stars)%}
+                   <i class="material-icons">star_border</i>
+                {%endfor%}
+                {%else%}
+                  {%for i in range (5): %}
+                   <i class="material-icons">star_border</i>
+                  {%endfor%}
+                
+                
+                {%endif%}
+                {%endwith%}
+              </p>
+              
+            </div>
+            <div class="card-action">
+             <button data-target="modal{{ book.isbn }}" class="btn modal-trigger">Review</button>
+            </div>
+          </div>
+        </div>
+        </div>
+
+      {%endfor%}
+              </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script> M.AutoInit(); </script>
+    <script>
+  
+    </script>
+  </body>
+</html>
